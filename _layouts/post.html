@@ -66,12 +66,16 @@ script_includes:
           <em>
             {% if authors %}
               {% for author in authors %}
-                {% if site.data.authors[author].url -%}
-                  <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-                {%- else -%}
-                  {{ site.data.authors[author].name }}
-                {%- endif %}
-                {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
+                {{ authors }}
+                {% comment %}
+                  Not embedding author info just present what's listed.
+                  {% if site.data.authors[author].url -%}
+                    <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+                  {%- else -%}
+                    {{ site.data.authors[author].name }}
+                  {%- endif %}
+                  {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
+                {% endcomment %}
               {% endfor %}
             {% else %}
               <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
