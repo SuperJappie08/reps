@@ -1,0 +1,12 @@
+{%- comment %} Trick for comparing timestamps.{%- endcomment %}
+{% capture post_time %}{{page.date | date: '%s'| plus: 0 }}{% endcapture %}
+{% capture reference_time %}{{ "2025-01-01" | date: '%s'| plus: 0 }}{% endcapture %}
+
+{% if post_time < reference_time %}
+  <div class="alert alert-light" role="alert">
+    This REP was produced using the old process, described in <a href="/rep-0001/">REP-0001:2012</a>. It remains active
+    and the content is still useful and in use today. However, if there's a need for udpating this REP please following
+    the new process, described in <a href="/rep-0001-2025/">REP-0001:2025</a>, to bring it in line with our current-day
+    standards and incorporate new knowledge that has become available since it was originally produced.
+  </div>
+{% endif %}
