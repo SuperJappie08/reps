@@ -37,7 +37,7 @@ script_includes:
         </span>
       {% endif %}
 
-      {% assign type_url = page.category | slugify | url_encode | prepend: '/categories/' | append: '/' %}
+      {% assign categories_url = page.category | slugify | url_encode | prepend: '/categories/' | append: '/' %}
       <span>
         Type:
         <a class="post-tag btn btn-outline-primary" href="{{ categories_url | relative_url }}"
